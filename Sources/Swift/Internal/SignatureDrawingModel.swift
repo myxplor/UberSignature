@@ -134,19 +134,19 @@ class SignatureDrawingModel: SignatureBezierProviderDelegate {
         }
         
         let imageFrame = CGRect(origin: CGPoint.zero, size: size)
-        UIGraphicsBeginImageContextWithOptions(imageFrame.size, false, 0)
-        imageA?.draw(in: imageFrame)
-        imageB?.draw(in: imageFrame)
+        let renderer = UIGraphicsImageRenderer(size: imageFrame.size)
         
-        if let path = bezierPath {
-            color.setStroke()
-            color.setFill()
-            path.stroke()
-            path.fill()
+        let result = renderer.image { context in
+            imageA?.draw(in: imageFrame)
+            imageB?.draw(in: imageFrame)
+            
+            if let path = bezierPath {
+                color.setStroke()
+                color.setFill()
+                path.stroke()
+                path.fill()
+            }
         }
-        
-        let result = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
         
         return result
     }
