@@ -14,6 +14,21 @@ With UberSignature, we attempted to engineer a solution that feels responsive an
 
 The package provides a SignatureDrawingViewController that detects the touches and draws a signature-styled line as the user moves their finger. It provides the ability to instantiate with a previous image, get current signature image, reset, and change signature color. It can be presented at any size and resizing the view will update the signature accordingly, allowing it to be used in auto-layout environments with ease.
 
+### Installation
+
+Swift Package Manager:
+
+```
+dependencies: [
+    .package(url: "https://github.com/uber/UberSignature.git", from: "1.0.3")
+]
+```
+
+Products:
+
+- `UberSignature` (Swift implementation)
+- `UberSignatureObjC` (Objective-C implementation)
+
 ### To use:
 
 Instantiate a SignatureDrawingViewController, optionally with an image that will be the starting signature.
